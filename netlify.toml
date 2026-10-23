@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+
+[build.environment]
+  # These values are public by design (model name, Supabase URL and publishable key), so the
+  # secrets scanner shouldn't fail the build when they appear in the site. ANTHROPIC_API_KEY
+  # is deliberately not listed: it must never appear in the build output.
+  SECRETS_SCAN_OMIT_KEYS = "ANTHROPIC_MODEL,NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY"
